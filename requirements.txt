@@ -7,3 +7,5 @@ tabulate>=0.9
 tqdm>=4.66
 openpyxl>=3.1
 langdetect
+transformers>=4.40
+torch>=2.1
