@@ -60,13 +60,6 @@ if __name__ == "__main__":
     print("\nReviews per label")
     print(classified["predicted_label"].value_counts())
 
-    for label in LABELS + ["other"]:
-        top = classified[classified["predicted_label"] == label].sort_values("predicted_score", ascending=False).head(3)
-        print(f"\nTop 3: {label}")
-        for _, row in top.iterrows():
-            print(f"  [{row['predicted_score']:.2f}] {row['content'][:150]}")
-
-    processed_dir = PROJECT_ROOT / "data" / "processed"
-    processed_dir.mkdir(parents=True, exist_ok=True)
-    classified.to_csv(processed_dir / "classified_reviews.csv", index=False)
-    print(f"\nSaved classified reviews to {processed_dir / 'classified_reviews.csv'}")
+    classified_output_path = RESULTS_DIR / "classified_reviews_data.xlsx"
+    classified.to_excel(classified_output_path, index=False)
+    print(f"Saved classified reviews to {classified_output_path}")
