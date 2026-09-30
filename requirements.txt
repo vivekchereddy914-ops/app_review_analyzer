@@ -9,3 +9,5 @@ openpyxl>=3.1
 langdetect
 transformers>=4.40
 torch>=2.1
+anthropic>=0.40
+python-dotenv>=1.0
